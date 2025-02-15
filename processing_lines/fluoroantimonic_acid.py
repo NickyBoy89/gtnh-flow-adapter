@@ -37,21 +37,39 @@ pentafluoride_recipe = Recipe(
     group=group_fluoroantimonic,
 )
 
+antimony = Ingredient("antimony")
 fluorine = Ingredient("fluorine")
 crushed_ice = Ingredient("crushed_ice")
 
 pentafluoride_solution_recipe = Recipe(
     machine="LCR",
     tier=Tier.IV,
-    inputs=[prod(ether, 1000), prod(fluorine, 40_000), prod(crushed_ice, 8000)],
+    inputs=[
+        prod(antimony, 8),
+        prod(ether, 1000),
+        prod(fluorine, 40_000),
+        prod(crushed_ice, 8000),
+    ],
     outputs=[prod(pentafluoride_solution, 8000)],
     eut=7680,
     duration=40,
     group=group_fluoroantimonic,
 )
 
+water = Ingredient("water")
+
+crushed_ice_recipe = Recipe(
+    machine="vacuum freezer",
+    tier=Tier.MV,
+    inputs=[prod(water, 1000)],
+    outputs=[prod(crushed_ice, 1000)],
+    eut=120,
+    duration=2.5,
+)
+
 fluoroantimonic_acid_processing_line = [
     fluoroantimonic_acid_recipe,
     pentafluoride_recipe,
     pentafluoride_solution_recipe,
+    crushed_ice_recipe,
 ]

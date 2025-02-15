@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Any, Iterable, List, Optional, Dict
+from typing import Any, Iterable, List, Optional, Dict, Self
 
 
 class Ingredient:
@@ -7,6 +7,9 @@ class Ingredient:
 
     def __init__(self, name: str) -> None:
         self.name = name
+
+    def recycled(self) -> Self:
+        return Ingredient(name=f"'[recycle] {self.name}'")
 
 
 class Product:

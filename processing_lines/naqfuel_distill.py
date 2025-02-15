@@ -63,7 +63,7 @@ naquadria_dust = Ingredient("naquadriah dust")
 extreme_unstable = Ingredient("extremely unstable naquadah dust")
 
 acid_naq_emul_recipe = Recipe(
-    machine="LCR",
+    machine="EBF",
     tier=Tier.IV,
     inputs=[prod(fluoroantimonic_acid, 4000), prod(naquadria_dust, 32)],
     outputs=[prod(acid_naq_emul, 8000), prod(extreme_unstable, 17)],
